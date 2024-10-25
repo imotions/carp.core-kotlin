@@ -287,11 +287,25 @@ class StudyDeployment private constructor(
         return when
         {
             needsRedeployment ->
-                DeviceDeploymentStatus.NeedsRedeployment( device, toObtainDeployment, beforeDeployment )
+                DeviceDeploymentStatus.NeedsRedeployment(
+                    device,
+                    _registeredDevices.getValue( device ),
+                    toObtainDeployment,
+                    beforeDeployment
+                )
             isDeployed ->
-                DeviceDeploymentStatus.Deployed( device )
+                DeviceDeploymentStatus.Deployed(
+                    device,
+                    _registeredDevices.getValue( device )
+                )
             isRegistered ->
-                DeviceDeploymentStatus.Registered( device, canBeDeployed, toObtainDeployment, beforeDeployment )
+                DeviceDeploymentStatus.Registered(
+                    device,
+                    _registeredDevices.getValue( device ),
+                    canBeDeployed,
+                    toObtainDeployment,
+                    beforeDeployment
+                )
             else ->
                 DeviceDeploymentStatus.Unregistered( device, canBeDeployed, toObtainDeployment, beforeDeployment )
         }

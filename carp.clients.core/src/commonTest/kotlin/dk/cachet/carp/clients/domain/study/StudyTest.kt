@@ -311,6 +311,7 @@ class StudyTest
                 listOf(
                     DeviceDeploymentStatus.Registered(
                         smartphone,
+                        primaryDeviceDeployment.registration,
                         true,
                         emptySet(),
                         connectedDevices.map { it.roleName }.toSet()

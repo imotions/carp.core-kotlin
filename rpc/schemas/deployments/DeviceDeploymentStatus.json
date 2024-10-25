@@ -29,6 +29,13 @@
       },
       "required": [ "remainingDevicesToRegisterToObtainDeployment", "remainingDevicesToRegisterBeforeDeployment" ]
     },
+    "HasRegistration": {
+        "type": "object",
+        "properties": {
+            "deviceRegistration": { "$ref": "../common/devices/DeviceRegistration.json" }
+        },
+        "required": [ "deviceRegistration" ]
+    },
     "Unregistered": {
       "$anchor": "Unregistered",
       "allOf": [ "#/$defs/DeviceDeploymentStatus", "#/$defs/NotDeployed" ],
@@ -41,7 +48,7 @@
     },
     "Registered": {
       "$anchor": "Registered",
-      "allOf": [ "#/$defs/DeviceDeploymentStatus", "#/$defs/NotDeployed" ],
+      "allOf": [ "#/$defs/DeviceDeploymentStatus", "#/$defs/NotDeployed", "#/$defs/HasRegistration" ],
       "properties": {
         "__type": { "const": "dk.cachet.carp.deployments.application.DeviceDeploymentStatus.Registered" },
         "canBeDeployed": { "type": "boolean" }
@@ -51,7 +58,7 @@
     },
     "Deployed": {
       "$anchor": "Deployed",
-      "allOf": [ "#/$defs/DeviceDeploymentStatus" ],
+      "allOf": [ "#/$defs/DeviceDeploymentStatus", "#/$defs/HasRegistration" ],
       "properties": {
         "__type": { "const": "dk.cachet.carp.deployments.application.DeviceDeploymentStatus.Deployed" }
       },
@@ -59,7 +66,7 @@
     },
     "NeedsRedeployment": {
       "$anchor": "NeedsRedeployment",
-      "allOf": [ "#/$defs/DeviceDeploymentStatus", "#/$defs/NotDeployed" ],
+      "allOf": [ "#/$defs/DeviceDeploymentStatus", "#/$defs/NotDeployed", "#/$defs/HasRegistration" ],
       "properties": {
         "__type": { "const": "dk.cachet.carp.deployments.application.DeviceDeploymentStatus.NeedsRedeployment" }
       },

@@ -97,7 +97,7 @@ interface ClientRepositoryTest
                 Clock.System.now(),
                 deploymentId,
                 listOf(
-                    DeviceDeploymentStatus.Registered( primaryDevice, true, emptySet(), emptySet() )
+                    DeviceDeploymentStatus.Registered( primaryDevice, registration, true, emptySet(), emptySet() )
                 ),
                 emptyList(),
                 null
