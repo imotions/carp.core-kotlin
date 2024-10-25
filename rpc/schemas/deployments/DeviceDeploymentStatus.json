@@ -34,7 +34,7 @@
         "properties": {
             "deviceRegistration": { "$ref": "../common/devices/DeviceRegistration.json" }
         },
-        "required": [ "registration" ]
+        "required": [ "deviceRegistration" ]
     },
     "Unregistered": {
       "$anchor": "Unregistered",

@@ -301,7 +301,7 @@ class StudyDeployment private constructor(
             isRegistered ->
                 DeviceDeploymentStatus.Registered(
                     device,
-                    _registeredDevices.getValue(device ),
+                    _registeredDevices.getValue( device ),
                     canBeDeployed,
                     toObtainDeployment,
                     beforeDeployment

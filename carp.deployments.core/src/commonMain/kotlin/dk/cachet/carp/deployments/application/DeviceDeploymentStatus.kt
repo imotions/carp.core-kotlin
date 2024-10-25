@@ -63,11 +63,10 @@ sealed class DeviceDeploymentStatus
     sealed interface HasDeviceRegistration
     {
         /**
-         * The registration information of the device, if available.
+         * The last [DeviceRegistration] for this device.
          */
         val deviceRegistration: DeviceRegistration
     }
-
 
     /**
      * Device deployment status for when a device has not been registered.
@@ -77,7 +76,7 @@ sealed class DeviceDeploymentStatus
         override val device: AnyDeviceConfiguration,
         override val canBeDeployed: Boolean,
         override val remainingDevicesToRegisterToObtainDeployment: Set<String>,
-        override val remainingDevicesToRegisterBeforeDeployment: Set<String>,
+        override val remainingDevicesToRegisterBeforeDeployment: Set<String>
     ) : NotDeployed()
 
     /**

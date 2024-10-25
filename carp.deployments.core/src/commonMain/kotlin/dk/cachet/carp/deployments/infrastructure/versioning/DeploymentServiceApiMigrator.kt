@@ -26,6 +26,7 @@ private val major1Minor0To1Migration =
         }
     }
 
+
 private val major1Minor1To3Migration =
     @Suppress( "MagicNumber" )
     object : ApiMigration( 1, 3 )
@@ -37,7 +38,7 @@ private val major1Minor1To3Migration =
             {
                 "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.GetDeviceDeploymentFor" ->
                 {
-                    val responseObject = (response.response as? JsonObject)?.migrate {
+                    val responseObject = response.response?.jsonObject?.migrate {
                         requiredDeviceDisplayName( "registration" )
 
                         updateOptionalObject( "connectedDeviceRegistrations" )
@@ -49,30 +50,20 @@ private val major1Minor1To3Migration =
                 }
                 "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.CreateStudyDeployment",
                 "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.GetStudyDeploymentStatus",
+                "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.RegisterDevice",
                 "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.UnregisterDevice",
-                "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.DeployDevice",
-                "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.Stop",
-                "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.RegisterDevice" ->
+                "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.DeviceDeployed",
+                "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.Stop" ->
                 {
                     val responseObject = response.response?.jsonObject?.migrate {
-                        updateArray( "deviceStatusList" ) {
-                            objects {
-                                removeDeviceRegistration()
-                            }
-                        }
+                        removeDeviceRegistration()
                     }
                     ApiResponse( responseObject, response.ex )
                 }
                 "dk.cachet.carp.deployments.infrastructure.DeploymentServiceRequest.GetStudyDeploymentStatusList" ->
                 {
-                    val responseObject = (response.response as? JsonArray)?.migrate {
-                        objects {
-                            updateArray( "deviceStatusList" ) {
-                                objects {
-                                    removeDeviceRegistration()
-                                }
-                            }
-                        }
+                    val responseObject = response.response?.jsonArray?.migrate {
+                        objects { removeDeviceRegistration() }
                     }
                     ApiResponse( responseObject, response.ex )
                 }
@@ -89,13 +80,17 @@ private val major1Minor1To3Migration =
             }
 
         /**
-         * The `deviceRegistration` field was added to the `DeviceStatus` object.
+         * Remove the newly added `deviceRegistration` field from `DeviceDeploymentStatus` objects contained within
+         * `StudyDeploymentStatus`.
          */
         private fun ApiJsonObjectMigrationBuilder.removeDeviceRegistration() =
-            json.remove( "deviceRegistration" )
+            updateArray( "deviceStatusList" ) {
+                objects { json.remove( "deviceRegistration" ) }
+            }
 
         override fun migrateEvent( event: JsonObject ) = event
     }
+
 
 val DeploymentServiceApiMigrator = ApplicationServiceApiMigrator(
     DeploymentService.API_VERSION,
