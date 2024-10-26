@@ -12,11 +12,15 @@
     }
   ],
   "$defs": {
+    "HACK-SEE-ISSUE-492": true,
     "PrimaryDeviceConfiguration": {
       "$anchor": "PrimaryDeviceConfiguration",
       "allOf": [ { "$ref": "DeviceConfiguration.json#DeviceConfiguration" } ],
       "properties": {
-        "isPrimaryDevice": { "const": true }
+        "isPrimaryDevice": { "const": true },
+
+        "roleName": { "$ref": "#/$defs/HACK-SEE-ISSUE-492" },
+        "defaultSamplingConfiguration": { "$ref": "#/$defs/HACK-SEE-ISSUE-492" }
       },
       "required": [ "isPrimaryDevice" ]
     }

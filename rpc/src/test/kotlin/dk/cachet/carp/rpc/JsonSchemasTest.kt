@@ -35,20 +35,20 @@ class JsonSchemasTest
                 val requestErrors = requestSchema.validate( requestJson )
                 check( requestErrors.isEmpty() )
                 {
-                    "JSON schema \"${requestSchema.currentUri}\" " +
+                    "JSON schema \"${requestSchema.schemaLocation}\" " +
                     "doesn't match generated JSON example of \"${r.requestObject.klass}\": $requestErrors"
                 }
 
                 // Validate response.
                 val requestObjectName = r.requestObject.klass.simpleName
                 val responseSchemaNode = requestSchema.getRefSchemaNode( "#/\$defs/$requestObjectName/Response" )
-                val responseSchema = schemaFactory.getSchema( requestSchema.currentUri, responseSchemaNode )
+                val responseSchema = schemaFactory.getSchema( requestSchema.schemaLocation, responseSchemaNode )
                 val responseJson = mapper.readTree( r.response.json )
                 val responseErrors = responseSchema.validate( responseJson )
                 check( responseErrors.isEmpty() )
                 {
-                    "JSON schema response defined in \"${requestSchema.currentUri}\" for \"$requestObjectName\" " +
-                    "doesn't match generated JSON example of \"${r.response.klass}\": $responseErrors"
+                    "JSON schema response defined in \"${requestSchema.schemaLocation}\" for \"$requestObjectName\" " +
+                    "doesn't match generated JSON example of \"${r.response.klass.simpleName}\": $responseErrors"
                 }
             }
         }
