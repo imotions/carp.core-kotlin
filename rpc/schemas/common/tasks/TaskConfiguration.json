@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "allOf": [
-    { "$ref": "#/$defs/TaskConfiguration" },
+    { "$ref": "#TaskConfiguration" },
     {
       "if": { "properties": { "__type": { "const": "dk.cachet.carp.common.application.tasks.BackgroundTask" } } },
       "then": { "$ref": "BackgroundTask.json" }

@@ -5,7 +5,7 @@
     "triggerId": { "type": "integer" },
     "taskName": { "type": "string" },
     "destinationDeviceRoleName": { "type": "string" },
-    "control": { "$ref": "#/$defs/Control" }
+    "control": { "$ref": "#Control" }
   },
   "required": [ "triggerId", "taskName", "destinationDeviceRoleName", "control" ],
   "additionalProperties": false,

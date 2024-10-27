@@ -1,15 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/CreateStudyDeployment" },
-    { "$ref": "#/$defs/RemoveStudyDeployments" },
-    { "$ref": "#/$defs/GetStudyDeploymentStatus" },
-    { "$ref": "#/$defs/GetStudyDeploymentStatusList" },
-    { "$ref": "#/$defs/RegisterDevice" },
-    { "$ref": "#/$defs/UnregisterDevice" },
-    { "$ref": "#/$defs/GetDeviceDeploymentFor" },
-    { "$ref": "#/$defs/DeviceDeployed" },
-    { "$ref": "#/$defs/Stop" }
+    { "$ref": "#CreateStudyDeployment" },
+    { "$ref": "#RemoveStudyDeployments" },
+    { "$ref": "#GetStudyDeploymentStatus" },
+    { "$ref": "#GetStudyDeploymentStatusList" },
+    { "$ref": "#RegisterDevice" },
+    { "$ref": "#UnregisterDevice" },
+    { "$ref": "#GetDeviceDeploymentFor" },
+    { "$ref": "#DeviceDeployed" },
+    { "$ref": "#Stop" }
   ],
   "$defs": {
     "ApiVersion": { "const": "1.3" },

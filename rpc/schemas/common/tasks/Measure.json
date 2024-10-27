@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "type": "object",
   "oneOf": [
-    { "$ref": "#/$defs/DataStream" },
-    { "$ref": "#/$defs/TriggerData" }
+    { "$ref": "#DataStream" },
+    { "$ref": "#TriggerData" }
   ],
   "$defs": {
     "DataStream": {

@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/AddParticipantByEmailAddress" },
-    { "$ref": "#/$defs/AddParticipantByUsername" },
-    { "$ref": "#/$defs/GetParticipant" },
-    { "$ref": "#/$defs/GetParticipants" },
-    { "$ref": "#/$defs/InviteNewParticipantGroup" },
-    { "$ref": "#/$defs/GetParticipantGroupStatusList" },
-    { "$ref": "#/$defs/StopParticipantGroup" }
+    { "$ref": "#AddParticipantByEmailAddress" },
+    { "$ref": "#AddParticipantByUsername" },
+    { "$ref": "#GetParticipant" },
+    { "$ref": "#GetParticipants" },
+    { "$ref": "#InviteNewParticipantGroup" },
+    { "$ref": "#GetParticipantGroupStatusList" },
+    { "$ref": "#StopParticipantGroup" }
   ],
   "$defs": {
     "ApiVersion": { "const": "1.2" },

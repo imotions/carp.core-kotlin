@@ -1,16 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/CreateStudy" },
-    { "$ref": "#/$defs/SetInternalDescription" },
-    { "$ref": "#/$defs/GetStudyDetails" },
-    { "$ref": "#/$defs/GetStudyStatus" },
-    { "$ref": "#/$defs/GetStudiesOverview" },
-    { "$ref": "#/$defs/SetInvitation" },
-    { "$ref": "#/$defs/SetProtocol" },
-    { "$ref": "#/$defs/RemoveProtocol" },
-    { "$ref": "#/$defs/GoLive" },
-    { "$ref": "#/$defs/Remove" }
+    { "$ref": "#CreateStudy" },
+    { "$ref": "#SetInternalDescription" },
+    { "$ref": "#GetStudyDetails" },
+    { "$ref": "#GetStudyStatus" },
+    { "$ref": "#GetStudiesOverview" },
+    { "$ref": "#SetInvitation" },
+    { "$ref": "#SetProtocol" },
+    { "$ref": "#RemoveProtocol" },
+    { "$ref": "#GoLive" },
+    { "$ref": "#Remove" }
   ],
   "$defs": {
     "ApiVersion": { "const": "1.1" },

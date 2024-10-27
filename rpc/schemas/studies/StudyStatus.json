@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/Configuring" },
-    { "$ref": "#/$defs/Live" }
+    { "$ref": "#Configuring" },
+    { "$ref": "#Live" }
   ],
   "$defs": {
     "StudyStatus": {
