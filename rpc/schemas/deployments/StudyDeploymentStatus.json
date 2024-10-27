@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/Invited" },
-    { "$ref": "#/$defs/DeployingDevices" },
-    { "$ref": "#/$defs/Running" },
-    { "$ref": "#/$defs/Stopped" }
+    { "$ref": "#Invited" },
+    { "$ref": "#DeployingDevices" },
+    { "$ref": "#Running" },
+    { "$ref": "#Stopped" }
   ],
   "$defs": {
     "StudyDeploymentStatus": {

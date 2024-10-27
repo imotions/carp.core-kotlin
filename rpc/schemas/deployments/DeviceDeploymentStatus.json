@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/Unregistered" },
-    { "$ref": "#/$defs/Registered" },
-    { "$ref": "#/$defs/Deployed" },
-    { "$ref": "#/$defs/NeedsRedeployment" }
+    { "$ref": "#Unregistered" },
+    { "$ref": "#Registered" },
+    { "$ref": "#Deployed" },
+    { "$ref": "#NeedsRedeployment" }
   ],
   "$defs": {
     "DeviceDeploymentStatus": {
@@ -16,6 +16,7 @@
       "required": [ "__type", "device" ]
     },
     "NotDeployed": {
+      "$anchor": "NotDeployed",
       "type": "object",
       "properties": {
         "remainingDevicesToRegisterToObtainDeployment": {
@@ -33,7 +34,7 @@
       "$anchor": "Unregistered",
       "allOf": [
         { "$ref": "#/$defs/DeviceDeploymentStatus" },
-        { "$ref": "#/$defs/NotDeployed" }
+        { "$ref": "#NotDeployed" }
       ],
       "properties": {
         "__type": { "const": "dk.cachet.carp.deployments.application.DeviceDeploymentStatus.Unregistered" },
@@ -46,7 +47,7 @@
       "$anchor": "Registered",
       "allOf": [
         { "$ref": "#/$defs/DeviceDeploymentStatus" },
-        { "$ref": "#/$defs/NotDeployed" }
+        { "$ref": "#NotDeployed" }
       ],
       "properties": {
         "__type": { "const": "dk.cachet.carp.deployments.application.DeviceDeploymentStatus.Registered" },
@@ -69,7 +70,7 @@
       "$anchor": "NeedsRedeployment",
       "allOf": [
         { "$ref": "#/$defs/DeviceDeploymentStatus" },
-        { "$ref": "#/$defs/NotDeployed" }
+        { "$ref": "#NotDeployed" }
       ],
       "properties": {
         "__type": { "const": "dk.cachet.carp.deployments.application.DeviceDeploymentStatus.NeedsRedeployment" }

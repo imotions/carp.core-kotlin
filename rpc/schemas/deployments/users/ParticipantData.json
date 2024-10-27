@@ -6,13 +6,14 @@
     "common": { "$ref": "../users/ParticipantDataMap.json" },
     "roles": {
       "type": "array",
-      "items": { "$ref": "#/$defs/RoleData" }
+      "items": { "$ref": "#RoleData" }
     }
   },
   "required": [ "studyDeploymentId", "common", "roles" ],
   "additionalProperties": false,
   "$defs": {
     "RoleData": {
+      "$anchor": "RoleData",
       "type": "object",
       "properties":{
         "roleName": { "type": "string" },

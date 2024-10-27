@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/OpenDataStreams" },
-    { "$ref": "#/$defs/AppendToDataStreams" },
-    { "$ref": "#/$defs/GetDataStream" },
-    { "$ref": "#/$defs/CloseDataStreams" },
-    { "$ref": "#/$defs/RemoveDataStreams" }
+    { "$ref": "#OpenDataStreams" },
+    { "$ref": "#AppendToDataStreams" },
+    { "$ref": "#GetDataStream" },
+    { "$ref": "#CloseDataStreams" },
+    { "$ref": "#RemoveDataStreams" }
   ],
   "$defs": {
     "ApiVersion": { "const": "1.1" },
@@ -76,6 +76,7 @@
       }
     },
     "RemoveDataStreams": {
+      "$anchor": "RemoveDataStreams",
       "type": "object",
   	  "properties": {
         "__type": { "const": "dk.cachet.carp.data.infrastructure.DataStreamServiceRequest.RemoveDataStreams" },

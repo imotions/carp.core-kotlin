@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "oneOf": [
-    { "$ref": "#/$defs/Add" },
-    { "$ref": "#/$defs/AddVersion" },
-    { "$ref": "#/$defs/UpdateParticipantDataConfiguration" },
-    { "$ref": "#/$defs/GetBy" },
-    { "$ref": "#/$defs/GetAllForOwner" },
-    { "$ref": "#/$defs/GetVersionHistoryFor" }
+    { "$ref": "#Add" },
+    { "$ref": "#AddVersion" },
+    { "$ref": "#UpdateParticipantDataConfiguration" },
+    { "$ref": "#GetBy" },
+    { "$ref": "#GetAllForOwner" },
+    { "$ref": "#GetVersionHistoryFor" }
   ],
   "$defs": {
     "ApiVersion": { "const": "1.1" },

@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "type": "object",
   "oneOf": [
-    { "$ref": "#/$defs/SelectOne" },
-    { "$ref": "#/$defs/Text" }
+    { "$ref": "#SelectOne" },
+    { "$ref": "#Text" }
   ],
   "$defs": {
     "SelectOne": {
