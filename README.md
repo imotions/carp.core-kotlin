@@ -1,6 +1,6 @@
 # CARP Core Framework
 
-[![Publish snapshots status](https://github.com/cph-cachet/carp.core-kotlin/workflows/Publish%20snapshots/badge.svg?branch=develop)](https://github.com/cph-cachet/carp.core-kotlin/actions?query=workflow%3A%22Publish+snapshots%22) 
+![Publish snapshots status](https://github.com/cph-cachet/carp.core-kotlin/actions/workflows/publish-snapshots.yml/badge.svg)
 
 CARP Core is a software framework to help developers build research platforms to run studies involving _distributed data collection_.
 It provides modules to define, deploy, and monitor research studies, and to collect data from multiple devices at multiple locations.
