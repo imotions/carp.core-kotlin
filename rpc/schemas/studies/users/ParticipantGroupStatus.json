@@ -7,7 +7,6 @@
     { "$ref": "#Stopped" }
   ],
   "$defs": {
-    "HACK-SEE-ISSUE-492": true,
     "ParticipantGroupStatus": {
       "type": "object",
       "properties": {
@@ -25,10 +24,7 @@
       "allOf": [ { "$ref": "#/$defs/ParticipantGroupStatus" } ],
       "properties": {
         "invitedOn": { "type": "string", "format": "date-time" },
-        "studyDeploymentStatus": { "$ref": "../../deployments/StudyDeploymentStatus.json" },
-
-        "id": { "$ref": "#/$defs/HACK-SEE-ISSUE-492" },
-        "participants": { "$ref": "#/$defs/HACK-SEE-ISSUE-492" }
+        "studyDeploymentStatus": { "$ref": "../../deployments/StudyDeploymentStatus.json" }
       },
       "required": [ "invitedOn", "studyDeploymentStatus" ]
     },

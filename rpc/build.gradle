@@ -10,7 +10,7 @@ dependencies {
     implementation "org.reflections:reflections:${versions.reflections}"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:${versions.serialization}"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
-    implementation "com.networknt:json-schema-validator:1.5.2"
+    implementation "com.networknt:json-schema-validator:1.5.3"
     implementation "commons-io:commons-io:${versions.apacheCommons}"
 
     def generateForProjects = coreModules + commonModule
